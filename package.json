@@ -1,0 +1,15 @@
+{
+  "name": "elden-ring-weapons-for-build",
+  "version": "0.0.1",
+  "description": "Parse armaments.json to get all usable weapons for a set build",
+  "main": "/build/main.js",
+  "scripts": {
+    "start": "tsc && node build/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Krister Bäckman",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
