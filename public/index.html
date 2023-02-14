@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="application/javascript">
+      window.addEventListener("load", () => {
+        $("#Submit").on("click", async() => {
+          let values = {};
+          $("#Build").children().each((i, element) => {
+            const value = parseInt($(element).val());
+            values[element.id] = isNaN(value) ? 0 : value;
+          });
+          const {data} = await axios.post("https://eldenring.dy.fi/api/weapons-for-build", values)
+          $("#Output").text(JSON.stringify(data, null, 2));
+        })
+      });
+    </script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #Output {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Elden Ring v1.08.1 - Get a list of weapons that can be used by your build
+    </h1>
+    <div id="Build">
+      Strength: <input id="strength" type="number" />
+      Dexterity: <input id="dexterity" type="number" />
+      Intelligence: <input id="intelligence" type="number" />
+      Faith: <input id="faith" type="number" />
+      Arcane: <input id="arcane" type="number" />
+    </div>
+    <div><input id="Submit" value="Get weapons" type="submit" /></div>
+    <pre><div id="Output"></div></pre>
+  </body>
+</html>

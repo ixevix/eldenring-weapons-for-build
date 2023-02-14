@@ -10,7 +10,8 @@ let build: Build = {
   arcane: 10,
 }
 
-const blockList = ["Shield", "Torch", "Bow"]
+//const blockList = ["Shield", "Torch", "Bow"]
+const blockList: string[] = [];
 
 const getWeaponsForBuild = (armaments: any, build: Build) => {
   const weaponsForBuild: any[] = [];
@@ -54,4 +55,6 @@ const main = () => {
   console.dir(readableFormat, {'maxArrayLength': null})
 };
 
-main();
+export {
+  getWeaponsForBuild
+}
