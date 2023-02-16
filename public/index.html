@@ -9,7 +9,9 @@
           let values = {};
           $("#Build").children().each((i, element) => {
             const value = parseInt($(element).val());
-            values[element.id] = isNaN(value) ? 0 : value;
+            if (!(element.id === undefined || element.id === "")) {
+              values[element.id] = isNaN(value) ? 0 : value;
+            }
           });
           const {data} = await axios.post("https://eldenring.dy.fi/api/weapons-for-build", values)
           $("#Output").text(JSON.stringify(data, null, 2));
