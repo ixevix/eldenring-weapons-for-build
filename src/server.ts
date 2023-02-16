@@ -11,6 +11,7 @@ const app = express();
 const port = 8082;
 
 app.use(express.json())
+app.use('/weapons-for-build', express.static("public"))
 
 app.listen(port, () => {
   console.log(`Express listening on port ${port}`);
