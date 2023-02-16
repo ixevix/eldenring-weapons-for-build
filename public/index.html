@@ -14,7 +14,8 @@
             }
           });
           const {data} = await axios.post("https://eldenring.dy.fi/api/weapons-for-build", values)
-          $("#Output").text(JSON.stringify(data, null, 2));
+          const jsonString = JSON.stringify(data, null, 2);
+          $("#Output").text(jsonString);
         })
       });
     </script>
