@@ -13,7 +13,7 @@
               values[element.id] = isNaN(value) ? 0 : value;
             }
           });
-          const {data} = await axios.post("https://eldenring.dy.fi/api/weapons-for-build", values)
+          const {data} = await axios.post("http://localhost:8082/api/weapons-for-build", values)
           const jsonString = JSON.stringify(data, null, 2);
           $("#Output").text(jsonString);
         })
